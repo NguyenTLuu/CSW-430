@@ -13,7 +13,13 @@ const MainNavigator = () => {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
-                headerShown: false,
+                headerStyle: {
+                    backgroundColor: '#d92b68',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
                 // eslint-disable-next-line react/no-unstable-nested-components
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
@@ -34,7 +40,11 @@ const MainNavigator = () => {
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{ headerShown: false }}
+            />
             <Tab.Screen name="Transaction" component={TransactionScreen} />
             <Tab.Screen name="Customer" component={CustomerScreen} />
             <Tab.Screen name="Setting" component={SettingScreen} />
