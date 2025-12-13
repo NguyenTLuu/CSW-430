@@ -20,6 +20,9 @@ import AddCustomer from './screen/AddCustomer';
 import TransactionDetail from './screen/TransactionDetail';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
+import CustomerDetail from './screen/CustomerDetail';
+import EditCustomer from './screen/EditCustomer';
+import AddTransaction from './screen/AddTransaction';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +46,7 @@ function App() {
                 console.log('Lỗi kiểm tra token:', error);
                 setInitialRoute('Login');
             } finally {
-                setIsLoading(false);    
+                setIsLoading(false);
             }
         };
 
@@ -119,6 +122,21 @@ function App() {
                                 name="TransactionDetail"
                                 component={TransactionDetail}
                                 options={{ title: 'Transaction Detail' }}
+                            />
+                            <Stack.Screen
+                                name="CustomerDetail"
+                                component={CustomerDetail}
+                                options={{ title: 'Customer Detail' }}
+                            />
+                            <Stack.Screen
+                                name="EditCustomer"
+                                component={EditCustomer}
+                                options={{ title: 'Edit Customer' }}
+                            />
+                            <Stack.Screen
+                                name="AddTransaction"
+                                component={AddTransaction}
+                                options={{ title: 'Add Transaction' }}
                             />
                         </Stack.Navigator>
                     </NavigationContainer>
